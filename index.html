@@ -37,7 +37,7 @@
   /* Hero */
   .hero{position:relative;overflow:hidden;padding-top:60px;background-color:#f8ecd2}
   .hero .seal{position:absolute;right:0;top:50%;transform:translateY(-50%);height:118%;opacity:.6;mix-blend-mode:darken;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
-  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;align-items:center;position:relative}
+  .hero .wrap{position:relative}
   .hero .brand{width:min(420px,80vw);mix-blend-mode:darken;display:block}
   .hero h1{font-size:clamp(30px,3.4vw,44px);color:var(--brun3);font-style:italic;font-weight:400;margin:28px 0 0}
   .hero h1 em{color:var(--or);font-style:italic}
@@ -45,8 +45,8 @@
   .hero .intro{margin:18px 0 28px}
   .hero .intro p{margin:0 0 10px}
   .hero .intro .mystere{font-style:italic;color:var(--brun3);margin:0}
-  .photo{position:relative;justify-self:center}
-  .photo img{width:min(400px,76vw);aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid #fff;box-shadow:0 0 0 1px var(--or-pale),0 14px 50px #b8902f40;display:block}
+  .photo{position:relative;width:fit-content;margin:0 0 8px}
+  .photo img{width:min(320px,76vw);aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid #fff;box-shadow:0 0 0 1px var(--or-pale),0 14px 50px #b8902f40;display:block}
   .photo .tag{position:absolute;bottom:26px;right:-8px;background:var(--or);color:#fff;padding:10px 16px;border-radius:14px;font-size:14px;font-weight:500;transform:rotate(-4deg)}
   .stats{display:flex;gap:38px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--or-pale)}
   .stats b{display:block;font-family:'Cormorant Garamond';font-size:38px;color:var(--or);font-weight:500;line-height:1}
@@ -110,7 +110,7 @@
   blockquote cite{display:block;margin-top:14px;font-style:normal;font-size:13px;color:var(--or)}
 
   /* A propos */
-  .book{margin-top:22px;padding:18px 22px;border-left:3px solid var(--or);background:var(--blanc);border-radius:0 14px 14px 0}
+  .book{max-width:470px;margin:22px 0 28px;padding:18px 22px;border-left:3px solid var(--or);background:var(--blanc);border-radius:0 14px 14px 0}
   .book b{font-family:'Cormorant Garamond';font-size:22px;color:var(--brun3);font-weight:500}
 
   /* CTA */
@@ -127,7 +127,7 @@
 
   @media(max-width:860px){
     nav .links{display:none}
-    .hero .wrap,.steps{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
     .hero .seal{height:55%;top:auto;bottom:0;transform:none;opacity:.35;-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%);mask-image:linear-gradient(180deg,transparent,#000 30%)}
     .wa span{display:none}.wa{padding:16px}
     .tcard{width:100px;height:160px}.tcard .face strong{font-size:19px}
@@ -154,6 +154,11 @@
         <p>Et parfois, avec Hocus Pocus, mon corbeau, je te révèle les messages de l'Oracle de Belline.</p>
         <p class="mystere">Entre intuition, héritage et mystères de l'invisible.</p>
       </div>
+      <div class="photo">
+        <img src="esther.jpg" alt="Esther Salomé et son corbeau Hocus Pocus">
+        <span class="tag">✦ avec Hocus Pocus</span>
+      </div>
+      <div class="book"><span class="eyebrow">À paraître</span><br><b>Rituels de guérison de l'âme</b></div>
       <a class="btn main" href="https://wa.me/33781965028" target="_blank" rel="noopener">Poser ma 1<sup>re</sup> question offerte</a>
       <a class="btn ghost" href="#consultations">Voir les consultations</a>
       <div class="stats">
@@ -162,10 +167,6 @@
         <div><b>1<sup>re</sup> question</b><span>offerte, sur WhatsApp</span></div>
         <div><b>100 %</b><span>à distance et confidentiel</span></div>
       </div>
-    </div>
-    <div class="photo">
-      <img src="esther.jpg" alt="Esther Salomé et son corbeau Hocus Pocus">
-      <span class="tag">✦ avec Hocus Pocus</span>
     </div>
   </div>
 </section>
