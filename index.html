@@ -110,10 +110,6 @@
   blockquote cite{display:block;margin-top:14px;font-style:normal;font-size:13px;color:var(--or)}
 
   /* A propos */
-  .about{background:var(--fond2)}
-  .about .wrap{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center}
-  .about img{width:100%;border-radius:220px 220px 18px 18px;border:6px solid #fff;box-shadow:0 10px 40px #b8902f33}
-  .about p{color:var(--brun2)}
   .book{margin-top:22px;padding:18px 22px;border-left:3px solid var(--or);background:var(--blanc);border-radius:0 14px 14px 0}
   .book b{font-family:'Cormorant Garamond';font-size:22px;color:var(--brun3);font-weight:500}
 
@@ -131,7 +127,7 @@
 
   @media(max-width:860px){
     nav .links{display:none}
-    .hero .wrap,.about .wrap,.steps{grid-template-columns:1fr}
+    .hero .wrap,.steps{grid-template-columns:1fr}
     .hero .seal{height:55%;top:auto;bottom:0;transform:none;opacity:.35;-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%);mask-image:linear-gradient(180deg,transparent,#000 30%)}
     .wa span{display:none}.wa{padding:16px}
     .tcard{width:100px;height:160px}.tcard .face strong{font-size:19px}
@@ -143,7 +139,7 @@
 
 <nav>
   <a class="logo" href="#">✦ Le Cercle Magique</a>
-  <div class="links"><a href="#tirage">Tirage du jour</a><a href="#consultations">Consultations</a><a href="#rituels">Rituels</a><a href="#avis">Avis</a><a href="#apropos">Qui suis-je</a></div>
+  <div class="links"><a href="#tirage">Tirage du jour</a><a href="#consultations">Consultations</a><a href="#rituels">Rituels</a><a href="#avis">Avis</a></div>
 </nav>
 
 <!-- HERO -->
@@ -251,18 +247,6 @@
 </section>
 
 <!-- A PROPOS -->
-<section class="about" id="apropos">
-  <div class="wrap">
-    <img src="esther.jpg" alt="Esther Salomé">
-    <div>
-      <div class="eyebrow">Qui suis-je</div>
-      <h2>Rien n'arrive par hasard</h2>
-      <p>Je suis Esther Salomé, médium intuitive depuis plus de 20 ans. Je partage avec toi des guidances intuitives, des tirages d'oracles et de tarots, des rituels de lumière et des enseignements inspirés de la Kabbale et de la magie blanche.</p>
-      <p style="margin-top:14px">Et puis il y a Hocus Pocus, mon corbeau. Chaque matin, c'est lui qui choisit les cartes.</p>
-      <div class="book"><span class="eyebrow">À paraître</span><br><b>Rituels de guérison de l'âme</b></div>
-    </div>
-  </div>
-</section>
 
 <!-- CTA -->
 <section class="cta">
