@@ -69,8 +69,6 @@
   #message p{margin:0 0 14px}
   #message .serif{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(22px,2.6vw,28px);color:var(--brun3)}
   #message .annonce{font-family:'Cormorant Garamond';font-size:clamp(24px,2.8vw,32px);color:var(--or);font-weight:500}
-  .countdown{font-size:14px;color:var(--brun2);margin-top:18px}
-  .countdown b{color:var(--or)}
   .tirage .note{font-size:12px;color:var(--brun3);opacity:.75;margin-top:22px}
   @media(prefers-reduced-motion:reduce){.tcard,.tcard.in,.tcard.in.flip,#message{transition:none}}
 
@@ -177,12 +175,12 @@
   <div class="wrap">
     <div class="eyebrow">L'Oracle de Belline</div>
     <h2>Le tirage de Hocus Pocus</h2>
-    <p class="lead">Hocus Pocus choisit trois cartes pour toi. Un tirage offert, toutes les 24 heures.</p>
+    <p class="lead">Hocus Pocus choisit trois cartes pour toi et t'en délivre le message.</p>
     <button class="btn main" id="tirer" type="button" style="border:0;cursor:pointer;font:inherit">Hocus Pocus, quel est ton message ?</button>
     <div class="cards" id="cards"></div>
     <div id="message" aria-live="polite"></div>
-    <p class="countdown" id="prochain" hidden>Prochain tirage dans <b id="cd">--</b></p>
     <div id="suite" hidden style="margin-top:22px">
+      <button class="btn ghost" id="encore" type="button" style="background:none;cursor:pointer;font:inherit">Nouveau tirage</button>
       <a class="btn main" href="https://calendly.com/esthersalome-lecerclemagique/message-de-hocus-pocus" target="_blank" rel="noopener">Recevoir mon Message de Hocus Pocus</a>
       <a class="btn ghost" href="https://www.instagram.com/esther_salome_cercle_magique/" target="_blank" rel="noopener">Voir les tirages en vidéo</a>
     </div>
@@ -394,37 +392,27 @@ function lire(nums){
     `<p>${un(CLOTURES)}</p>`;
 }
 
-const CLE="hocus-pocus-tirage",JOUR=864e5;
 const $=id=>document.getElementById(id);
 const V="?v=2"; // à changer quand les photos des cartes changent, pour vider le cache des navigateurs
 const fichier=n=>`cartes/${String(n).padStart(2,"0")}-${CARTES[n-1][1]}.webp${V}`;
-function lireMemoire(){try{const t=JSON.parse(localStorage.getItem(CLE));return t&&Date.now()-t.t<JOUR?t:null}catch(e){return null}}
-function ecrireMemoire(t){try{localStorage.setItem(CLE,JSON.stringify(t))}catch(e){}}
-function poser(nums,anime){
+function poser(nums){
   const box=$("cards");box.innerHTML="";
   nums.forEach(n=>{const c=document.createElement("div");c.className="tcard";
     c.innerHTML=`<img src="cartes/dos.webp${V}" alt=""><img class="face" src="${fichier(n)}" alt="${CARTES[n-1][2]}">`;
     box.appendChild(c)});
   const cs=[...box.children];
-  if(!anime){cs.forEach(c=>c.classList.add("in","flip"));return Promise.resolve()}
   return new Promise(fin=>{
     cs.forEach((c,i)=>setTimeout(()=>c.classList.add("in"),80+i*250));
     cs.forEach((c,i)=>setTimeout(()=>c.classList.add("flip"),1100+i*900));
     setTimeout(fin,1100+cs.length*900+300)});
 }
-function afficher(t,anime){
-  $("tirer").hidden=true;
-  return poser(t.c,anime).then(()=>{
-    $("message").innerHTML=t.m;$("message").classList.add("in");
-    $("suite").hidden=false;$("prochain").hidden=false;compte(t)});
-}
-function compte(t){const x=Math.max(0,Math.floor((t.t+JOUR-Date.now())/1000)),h=Math.floor(x/3600),m=Math.floor(x%3600/60);
-  if(x===0){location.reload();return}
-  $("cd").textContent=`${h} h ${String(m).padStart(2,"0")} min`;setTimeout(()=>compte(t),30000)}
-$("tirer").onclick=()=>{
+function tirer(){
   const nums=[];while(nums.length<3){const n=1+Math.floor(Math.random()*CARTES.length);if(!nums.includes(n))nums.push(n)}
-  const t={c:nums,m:lire(nums),t:Date.now()};ecrireMemoire(t);afficher(t,true)};
-const deja=lireMemoire();if(deja)afficher(deja,false);
+  $("tirer").hidden=true;$("suite").hidden=true;$("message").classList.remove("in");
+  poser(nums).then(()=>{$("message").innerHTML=lire(nums);$("message").classList.add("in");$("suite").hidden=false});
+}
+$("tirer").onclick=tirer;
+$("encore").onclick=()=>{$("tirage").scrollIntoView({behavior:"smooth"});tirer()};
 </script>
 </body>
 </html>
