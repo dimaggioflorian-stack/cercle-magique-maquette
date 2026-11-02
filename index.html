@@ -396,13 +396,14 @@ function lire(nums){
 
 const CLE="hocus-pocus-tirage",JOUR=864e5;
 const $=id=>document.getElementById(id);
-const fichier=n=>`cartes/${String(n).padStart(2,"0")}-${CARTES[n-1][1]}.webp`;
+const V="?v=2"; // à changer quand les photos des cartes changent, pour vider le cache des navigateurs
+const fichier=n=>`cartes/${String(n).padStart(2,"0")}-${CARTES[n-1][1]}.webp${V}`;
 function lireMemoire(){try{const t=JSON.parse(localStorage.getItem(CLE));return t&&Date.now()-t.t<JOUR?t:null}catch(e){return null}}
 function ecrireMemoire(t){try{localStorage.setItem(CLE,JSON.stringify(t))}catch(e){}}
 function poser(nums,anime){
   const box=$("cards");box.innerHTML="";
   nums.forEach(n=>{const c=document.createElement("div");c.className="tcard";
-    c.innerHTML=`<img src="cartes/dos.webp" alt=""><img class="face" src="${fichier(n)}" alt="${CARTES[n-1][2]}">`;
+    c.innerHTML=`<img src="cartes/dos.webp${V}" alt=""><img class="face" src="${fichier(n)}" alt="${CARTES[n-1][2]}">`;
     box.appendChild(c)});
   const cs=[...box.children];
   if(!anime){cs.forEach(c=>c.classList.add("in","flip"));return Promise.resolve()}
