@@ -58,7 +58,7 @@
   .tirage{background:var(--fond2);text-align:center;border-top:1px solid var(--or-pale);border-bottom:1px solid var(--or-pale)}
   .tirage .lead{margin:0 auto}
   .cards{display:flex;justify-content:center;gap:20px;margin:36px 0 22px;perspective:1200px;flex-wrap:wrap}
-  .tcard{width:250px;aspect-ratio:1000/612;position:relative;transform-style:preserve-3d;transition:transform .9s;opacity:0;transform:translateY(16px)}
+  .tcard{width:180px;aspect-ratio:621/1000;position:relative;transform-style:preserve-3d;transition:transform .9s;opacity:0;transform:translateY(16px)}
   .tcard.in{opacity:1;transform:none;transition:opacity .5s,transform .5s}
   .tcard.in.flip{transform:rotateY(180deg);transition:transform .9s}
   .tcard img{position:absolute;inset:0;width:100%;height:100%;border-radius:10px;backface-visibility:hidden;box-shadow:0 8px 24px #3b2a1430}
@@ -131,7 +131,7 @@
     .steps{grid-template-columns:1fr}
     .hero .seal{height:55%;top:auto;bottom:0;transform:none;opacity:.35;-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%);mask-image:linear-gradient(180deg,transparent,#000 30%)}
     .wa span{display:none}.wa{padding:16px}
-    .cards{flex-direction:column;align-items:center;gap:14px}.tcard{width:min(300px,82vw)}
+    .cards{gap:10px;flex-wrap:nowrap}.tcard{width:29vw}
     .cta{margin:60px 4vw}
   }
 </style>
