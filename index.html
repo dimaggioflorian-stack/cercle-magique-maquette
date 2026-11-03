@@ -69,6 +69,7 @@
   #message p{margin:0 0 14px}
   #message .serif{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(22px,2.6vw,28px);color:var(--brun3)}
   #message .annonce{font-family:'Cormorant Garamond';font-size:clamp(24px,2.8vw,32px);color:var(--or);font-weight:500}
+  .tirage .invite{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(24px,2.8vw,32px);color:var(--brun3);margin:0 0 8px}
   .tirage .note{font-size:12px;color:var(--brun3);opacity:.75;margin-top:22px}
   @media(prefers-reduced-motion:reduce){.tcard,.tcard.in,.tcard.in.flip,#message{transition:none}}
 
@@ -174,15 +175,19 @@
 <section class="tirage" id="tirage">
   <div class="wrap">
     <div class="eyebrow">L'Oracle de Belline</div>
-    <h2>Le tirage de Hocus Pocus</h2>
-    <p class="lead">Hocus Pocus choisit trois cartes pour toi et t'en délivre le message.</p>
-    <button class="btn main" id="tirer" type="button" style="border:0;cursor:pointer;font:inherit">Hocus Pocus, quel est ton message ?</button>
+    <h2>Un tirage à la manière de Hocus Pocus…</h2>
+    <p class="lead">Laisse le hasard choisir trois cartes de l'Oracle de Belline et découvre leur message.</p>
+    <button class="btn main" id="tirer" type="button" style="border:0;cursor:pointer;font:inherit">Tirer mes trois cartes</button>
     <div class="cards" id="cards"></div>
     <div id="message" aria-live="polite"></div>
-    <div id="suite" hidden style="margin-top:22px">
-      <button class="btn ghost" id="encore" type="button" style="background:none;cursor:pointer;font:inherit">Nouveau tirage</button>
-      <a class="btn main" href="https://calendly.com/esthersalome-lecerclemagique/message-de-hocus-pocus" target="_blank" rel="noopener">Recevoir mon Message de Hocus Pocus</a>
-      <a class="btn ghost" href="https://www.instagram.com/esther_salome_cercle_magique/" target="_blank" rel="noopener">Voir les tirages en vidéo</a>
+    <div id="suite" hidden style="margin-top:34px;padding-top:28px;border-top:1px solid var(--or-pale)">
+      <p class="invite">Et si tu recevais ton message personnel de Hocus Pocus ?</p>
+      <p style="margin:0 auto 18px;max-width:560px">Cette fois, c'est Hocus Pocus lui-même qui tire les cartes, spécialement pour toi.</p>
+      <a class="btn main" href="https://calendly.com/esthersalome-lecerclemagique/message-de-hocus-pocus" target="_blank" rel="noopener">Recevoir mon message personnel</a>
+      <div style="margin-top:14px">
+        <button class="btn ghost" id="encore" type="button" style="background:none;cursor:pointer;font:inherit">Nouveau tirage</button>
+        <a class="btn ghost" href="https://www.instagram.com/esther_salome_cercle_magique/" target="_blank" rel="noopener">Voir les tirages en vidéo</a>
+      </div>
     </div>
     <p class="note">Tirage offert, à visée de divertissement.</p>
   </div>
@@ -362,12 +367,12 @@ const THEMES={
  l:"Une belle lumière entoure ce tirage… il y a plus de soutien autour de toi que tu ne le crois.",
  d:"Les cartes du destin se sont donné rendez-vous… ce tirage n'a rien d'anodin."
 };
-const OUVERTURES=["Hocus Pocus, quel est ton message ?","Je dispose les cartes, Hocus Pocus fait ses choix…","Aujourd'hui, Hocus Pocus a choisi trois cartes pour toi…","Hocus Pocus a encore choisi ses cartes avec une précision assez troublante…","Il y a des jours où Hocus Pocus ne fait vraiment pas les choses à moitié…"];
-const AMBIANCES={1:"Hocus Pocus semble annoncer un tournant plutôt lumineux…",0:"Il y a des matins où les cartes semblent presque se répondre entre elles…","-1":"Il y a des tirages qui demandent du courage… celui-ci en fait partie."};
+const OUVERTURES=["Trois cartes, un seul message…","Les cartes sont posées… écoute ce qu'elles ont à te dire.","Aujourd'hui, Hocus Pocus a choisi trois cartes pour toi…","Le hasard fait parfois les choses avec une précision assez troublante…","Il y a des jours où les cartes ne font vraiment pas les choses à moitié…"];
+const AMBIANCES={1:"Les cartes semblent annoncer un tournant plutôt lumineux…",0:"Il y a des matins où les cartes semblent presque se répondre entre elles…","-1":"Il y a des tirages qui demandent du courage… celui-ci en fait partie."};
 const SAGESSES={1:["Ce qui t'est destiné finira par trouver son chemin…","Rien n'arrêtera ce qui doit avancer…"],
  0:["Et si le bonheur que tu attends n'était pas celui que tu avais imaginé ?","Il y a parfois une grande différence entre ce qui nous retient réellement… et ce que l'on croit."],
  "-1":["Certaines batailles semblent nous faire perdre… alors qu'elles nous préparent simplement à reprendre.","Et si ce que tu t'acharnes à préserver était précisément ce qui t'empêche d'avancer ?"]};
-const CLOTURES=["Il a fait son choix… à toi d'écouter ce qu'il est venu te dire aujourd'hui.","Et toi, quelque chose dans le message d'Hocus Pocus résonne-t-il avec ton histoire ?","Si tu es tombé sur ce tirage aujourd'hui, écoute bien… ce n'est peut-être pas un hasard."];
+const CLOTURES=["Les cartes ont parlé… à toi d'écouter ce qu'elles sont venues te dire aujourd'hui.","Et toi, quelque chose dans ce message résonne-t-il avec ton histoire ?","Si tu es tombé sur ce tirage aujourd'hui, écoute bien… ce n'est peut-être pas un hasard."];
 
 const un=a=>a[Math.floor(Math.random()*a.length)];
 const minus=t=>t.charAt(0).toLowerCase()+t.slice(1);
