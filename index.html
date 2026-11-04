@@ -73,13 +73,6 @@
   .tirage .note{font-size:12px;color:var(--brun3);opacity:.75;margin-top:22px}
   @media(prefers-reduced-motion:reduce){.tcard,.tcard.in,.tcard.in.flip,#message{transition:none}}
 
-  /* Etapes */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px}
-  .steps div{text-align:center;padding:10px}
-  .steps b{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 14px;border-radius:50%;border:1px solid var(--or);color:var(--or);font-family:'Cormorant Garamond';font-size:28px;font-weight:500;background:var(--blanc)}
-  .steps h3{font-size:26px;color:var(--brun3)}
-  .steps p{color:var(--brun2)}
-
   /* Offres */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:40px}
   .card{background:var(--blanc);padding:28px;border-radius:18px;border:1px solid #ecdcae;display:flex;flex-direction:column;transition:.25s}
@@ -91,6 +84,10 @@
   .card a:hover{text-decoration:underline}
   .card.feat{background:linear-gradient(160deg,#c9a646,#a37e25);color:#fff;border-color:var(--or)}
   .card.feat h3,.card.feat .price,.card.feat p,.card.feat a{color:#fff}
+  .paiement{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px;font-size:14px;color:var(--brun3)}
+  .paiement .logo{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;background:#fff;border:1px solid #ecdcae;border-radius:10px}
+  .paiement img{height:22px;width:auto;display:block}
+  .paiement svg{height:22px;width:auto}
   .badge{align-self:flex-start;background:#fff;color:var(--brun3);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:12px}
 
   /* Rituels */
@@ -127,7 +124,6 @@
 
   @media(max-width:860px){
     nav .links{display:none}
-    .steps{grid-template-columns:1fr}
     .hero .seal{height:55%;top:auto;bottom:0;transform:none;opacity:.35;-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%);mask-image:linear-gradient(180deg,transparent,#000 30%)}
     .wa span{display:none}.wa{padding:16px}
     .cards{gap:10px;flex-wrap:nowrap}.tcard{width:29vw}
@@ -193,21 +189,8 @@
   </div>
 </section>
 
-<!-- COMMENT CA MARCHE -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Comment ça marche</div>
-    <h2>Simple, à distance, confidentiel</h2>
-    <div class="steps">
-      <div><b>1</b><h3>Choisis</h3><p>ta consultation</p></div>
-      <div><b>2</b><h3>Prends rendez-vous</h3><p>Règlement : carte, virement ou PayPal</p></div>
-      <div><b>3</b><h3>Consultation</h3><p>WhatsApp audio, visio</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- CONSULTATIONS -->
-<section id="consultations" style="padding-top:20px">
+<section id="consultations">
   <div class="wrap">
     <div class="eyebrow">Tarifs</div>
     <h2>Les consultations</h2>
@@ -219,6 +202,12 @@
       <div class="card feat"><span class="badge">✦ Signature</span><h3>Message de Hocus Pocus ✦</h3><div class="price">49 €</div><p>Reçois une vidéo de ton tirage privé, avec les cartes choisies pour toi par Hocus Pocus.</p><a href="https://calendly.com/esthersalome-lecerclemagique/message-de-hocus-pocus" target="_blank" rel="noopener">Réserver →</a></div>
       <div class="card"><h3>Lecture du marc de café</h3><div class="price">11,11 €</div><p>Rituel ancestral : à partir des photos de ta tasse, je lis les formes et les symboles qui se dessinent pour toi.</p><a href="https://calendly.com/esthersalome-lecerclemagique/lecture-marc-de-cafe" target="_blank" rel="noopener">Réserver →</a></div>
       <div class="card"><h3>Rituels & suivi</h3><div class="price">Sur devis</div><p>Rituels de magie blanche issus de la Kabbale, protections et suivi des travaux.</p><a href="https://calendly.com/esthersalome-lecerclemagique/rituel" target="_blank" rel="noopener">En parler →</a></div>
+    </div>
+    <div class="paiement" aria-label="Moyens de paiement">
+      <span>Paiement :</span>
+      <span class="logo"><svg viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="1" width="32" height="22" rx="3" fill="#fff" stroke="#3b2a14" stroke-width="1.5"/><rect x="1" y="6" width="32" height="4" fill="#3b2a14"/><rect x="5" y="15" width="10" height="3" rx="1" fill="#b8902f"/></svg>Carte bancaire</span>
+      <span class="logo"><img src="paiement/paypal.svg" alt="PayPal"></span>
+      <span class="logo"><img src="paiement/wero.svg" alt="Wero"></span>
     </div>
   </div>
 </section>
